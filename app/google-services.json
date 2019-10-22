@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "397319295599",
+    "firebase_url": "https://landmark-96e2c.firebaseio.com",
+    "project_id": "landmark-96e2c",
+    "storage_bucket": "landmark-96e2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397319295599:android:96f4c12f465fa5dd57739a",
+        "android_client_info": {
+          "package_name": "com.dani.landmark"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "397319295599-duu9pef8f9uh24jbqkf45kgrrv1c7ndp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAihPVV1IJ6JgPNvEshohP25lID0xGmlt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397319295599-duu9pef8f9uh24jbqkf45kgrrv1c7ndp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
