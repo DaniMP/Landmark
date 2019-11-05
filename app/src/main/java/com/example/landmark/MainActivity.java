@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         button = this.findViewById(R.id.send);
         userInput = (EditText) findViewById(R.id.editText);
 
+
+
         button1 = this.findViewById(R.id.foto);
 
         button.setOnClickListener(new View.OnClickListener() {        // METODO ONCLICK
