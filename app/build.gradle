@@ -21,9 +21,6 @@ android {
 
 
 dependencies {
-    implementation 'com.google.firebase:firebase-ml-vision:24.0.0'  // Para reconocimiento de landmarks
-    implementation 'com.google.firebase:firebase-storage:10.2.0'    // Camara guardar fotos pero que tengo que cambiar mirando en el apartado de Storage de Firebase
-    implementation 'com.google.firebase:firebase-analytics:17.2.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
@@ -31,6 +28,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.firebase:firebase-ml-vision:24.0.0'  // Para reconocimiento de landmarks
+    implementation 'com.google.firebase:firebase-storage:10.2.0'    // Camara guardar fotos pero que tengo que cambiar mirando en el apartado de Storage de Firebase
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+    implementation 'com.google.firebase:firebase-auth:19.0.0'
+    implementation 'com.google.firebase:firebase-database:19.2.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
 
 apply plugin: 'com.google.gms.google-services'  // Para que funcionen los servicios de firebase!!

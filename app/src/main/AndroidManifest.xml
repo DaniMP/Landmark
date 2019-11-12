@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".escenas.terminos.TerminosActivity"
+                  android:noHistory="true" />
         <activity android:name=".SecondActivity"></activity>
-        <activity android:name=".MainActivity" android:noHistory="false">       <!-- ESTE METODO ES PARA QUE NO SE PUEDA VOLVER A ESTA PANTALLA TIRANDO PARA ATRAS-->
+        <activity android:name=".MainActivity" android:noHistory="false">
+        <activity android:name=".escenas.boot.BootActivity"
+                  android:noHistory="true"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
