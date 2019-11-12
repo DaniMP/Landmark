@@ -5,13 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ProgressBar;
+import com.example.landmark.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class GaleriaActivity extends AppCompatActivity implements IGaleriaActivity  {
+import escenas.galeria.interfaces.IGaleriaActivity;
+
+public class GaleriaActivity extends AppCompatActivity implements IGaleriaActivity {
 
     //MVP Variables
-    private GalleryPresenter presenter;
+    private GaleriaPresenter presenter;
 
     //Setting the UI
     private ProgressBar spinner;
@@ -25,7 +28,7 @@ public class GaleriaActivity extends AppCompatActivity implements IGaleriaActivi
         //init the UI
         this.spinner = (ProgressBar)findViewById(R.id.progressBarGallery);
         //Init the presenter
-        this.presenter = new GalleryPresenter(this);
+        this.presenter = new GaleriaPresenter(this);
 
 
         //Call the preseenter to subscribe for assets

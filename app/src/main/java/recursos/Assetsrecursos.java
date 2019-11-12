@@ -48,7 +48,7 @@ public class Assetsrecursos {
 
                 for (DataSnapshot item_snapshot : dataSnapshot.getChildren()) {
 
-                    assetsList.add(snapshotToModeloAsset(item_snapshot));
+                    assetsList.add(snapshotToAssetModel(item_snapshot));
                 }
 
                 Assetsrecursos.this.assetsList = assetsList;

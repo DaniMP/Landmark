@@ -4,15 +4,19 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.landmark.R;
 
 import java.util.ArrayList;
 
 import ayudas.Callback;
+import escenas.galeria.interfaces.IGaleriaPresenter;
 import modelos.ModeloAsset;
 
-public class GaleriaPresenter {
+public class GaleriaPresenter extends BaseAdapter implements IGaleriaPresenter {
 
     //MVP Variables
     private GaleriaActivity view;
@@ -21,7 +25,7 @@ public class GaleriaPresenter {
     private ArrayList<ModeloAsset> items = new ArrayList<ModeloAsset>(); //data source of the list adapter
 
 
-    public GalleryPresenter(GaleriaActivity view){
+    public GaleriaPresenter(GaleriaActivity view){
         this.view = view;
         this.interactor = new GaleriaInteractor();
     }

@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.landmark.R;
 
 import escenas.boot.interfaces.IBootActivity;
+import escenas.galeria.GaleriaActivity;
+import escenas.terminos.TerminosActivity;
+import recursos.Sesionrecursos;
 
 public class BootActivity extends AppCompatActivity implements IBootActivity {
     //MVP Variables
@@ -20,7 +23,7 @@ public class BootActivity extends AppCompatActivity implements IBootActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boot);
 
-        SessionDataSource.shared.signOut();
+        Sesionrecursos.shared.signOut();
 
         //Init the presenter
         this.presenter = new BootPresenter(this);
@@ -32,14 +35,14 @@ public class BootActivity extends AppCompatActivity implements IBootActivity {
     //Interface IBootActivity
     @Override
     public void navigateToPublic() {
-        Intent intent = new Intent(BootActivity.this, TermsActivity.class);
+        Intent intent = new Intent(BootActivity.this, TerminosActivity.class);
         intent.setAction(Intent.ACTION_VIEW);
         BootActivity.this.startActivity(intent);
     }
 
     @Override
     public void navigateToPrivate() {
-        Intent intent = new Intent(BootActivity.this, GalleryActivity.class);
+        Intent intent = new Intent(BootActivity.this, GaleriaActivity.class);
         intent.setAction(Intent.ACTION_VIEW);
         BootActivity.this.startActivity(intent);
     }
