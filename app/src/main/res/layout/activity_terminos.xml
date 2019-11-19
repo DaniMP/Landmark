@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@color/colorAccent"
-        android:textColor="@color/white"/>
+        android:textColor="@color/colorAccentContrast"/>
 
 
     <ProgressBar
