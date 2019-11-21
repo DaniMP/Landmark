@@ -1,4 +1,4 @@
-package escenas.boot.interfaces;
+package com.example.landmark.escenas.boot.interfaces;
 
 public interface IBootActivity {
     void navigateToPublic();

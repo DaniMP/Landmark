@@ -1,4 +1,4 @@
-package escenas.terminos.interfaces;
+package com.example.landmark.escenas.terminos.interfaces;
 
 public interface ITerminosPresenter {
 

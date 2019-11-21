@@ -1,9 +1,9 @@
-package escenas.boot;
+package com.example.landmark.escenas.boot;
 
-import ayudas.Callback;
-import escenas.boot.interfaces.IBootActivity;
-import escenas.boot.interfaces.IBootInteractor;
-import escenas.boot.interfaces.IBootPresenter;
+import com.example.landmark.ayudas.Callback;
+import com.example.landmark.escenas.boot.interfaces.IBootActivity;
+import com.example.landmark.escenas.boot.interfaces.IBootInteractor;
+import com.example.landmark.escenas.boot.interfaces.IBootPresenter;
 
 public class BootPresenter implements IBootPresenter {
     //MVP Variables

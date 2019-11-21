@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.ml.vision.cloud.FirebaseVisionCloudDetectorOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button button, button1;
     EditText userInput;
-    static final int REQUEST_IMAGE_CAPTURE = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         button1 = this.findViewById(R.id.foto);
-
+/*
         button.setOnClickListener(new View.OnClickListener() {        // METODO ONCLICK
 
             @Override
@@ -47,70 +48,52 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+*/
+            FirebaseVisionCloudDetectorOptions options =
+                    new FirebaseVisionCloudDetectorOptions.Builder()
+                            .setModelType(FirebaseVisionCloudDetectorOptions.LATEST_MODEL)
+                            .setMaxResults(15)
+                            .build();
 
-        button1.setOnClickListener(new View.OnClickListener() {        // METODO ONCLICK
+
+        button.setOnClickListener(new View.OnClickListener() {        // METODO ONCLICK
 
             @Override
             public void onClick(View v) {
-
                 Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                    startActivityForResult(takePictureIntent, 1);
                 }
             }
-
-           // @Override
-            protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-                if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-                    Bundle extras = data.getExtras();
-                    Bitmap imageBitmap = (Bitmap) extras.get("data");
-
-
-                    FirebaseStorage storage = FirebaseStorage.getInstance();
-
-                    //Generate reference
-
-                    StorageReference storageRef = storage.getReference();
-                    //Bitmap de la camara
-
-                    //guardar en la referencia el bitmap, meta data imagen jpg
-
-
-
-                   // Bitmap imageBitmap = (Bitmap) extras.get("data       //Código para guardar la imagen en Firebase
-
-                   // Bitmap imageBitmap = (Bitmap) extras.get("data  ");     //Código para guardar la imagen en Firebase
-
-                }
-            }
-
         });
 
+        Button buttonGal = this.findViewById(R.id.gallery);
 
+        buttonGal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(galleryIntent , 0 );
+            }
+        });
 
+/*
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+
+            switch (requestCode) {
+                case QuestionEntryView.RESULT_GALLERY :
+                    if (null != data) {
+                        imageUri = data.getData();
+                        //Do whatever that you desire here. or leave this blank
+
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }*/
     }
 
 }
-/*
-    String timeStamp = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss").format(new Date());
-
-    // Creamos una referencia a la carpeta y el nombre de la imagen donde se guardara
-    StorageReference mountainImagesRef = storageRef.child("camara/"+timeStamp+".jpga imagen a un array de byte
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] datas = baos.toByteArray();
-
-// Empezamos con la subida a Firebase
-        UploadTask uploadTask = mountainImagesRef.putBytes(datas);
-        uploadTask.addOnFailureListener(new OnFailureListener() {
-@Override
-public void onFailure(@NonNull Exception exception) {
-        Toast.makeText(getBaseContext(),"Hubo un error",Toast.LENGTH_LONG);
-        }
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-@Override
-public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-        Toast.makeText(getBaseContext(),"Subida con exito",Toast.LENGTH_LONG);
-
-        }
-        }); */

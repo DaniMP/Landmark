@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.landmark">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,19 +15,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".escenas.terminos.TerminosActivity"
-                  android:noHistory="true" />
-        <activity android:name=".SecondActivity"></activity>
-        <activity android:name=".MainActivity" android:noHistory="false">
-        <activity android:name=".escenas.boot.BootActivity"
-                  android:noHistory="true"/>
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            <activity
+                android:name=".escenas.terminos.TerminosActivity"
+                android:noHistory="true" />
+            <activity android:name=".SecondActivity" />
+            <activity android:name=".CameraXActivity"></activity>
+            <activity
+            android:name=".MainActivity"
+            android:noHistory="false">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            </activity>
+            <activity
+                android:name=".escenas.boot.BootActivity"
+                android:noHistory="true">
+            </activity>
     </application>
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true" />
+
 </manifest>
