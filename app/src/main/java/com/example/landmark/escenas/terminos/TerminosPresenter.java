@@ -1,9 +1,9 @@
-package escenas.terminos;
+package com.example.landmark.escenas.terminos;
 
-import ayudas.Callback;
-import escenas.terminos.interfaces.ITerminosActivity;
-import escenas.terminos.interfaces.ITerminosPresenter;
-import recursos.Sesionrecursos;
+import com.example.landmark.ayudas.Callback;
+import com.example.landmark.escenas.terminos.interfaces.ITerminosActivity;
+import com.example.landmark.escenas.terminos.interfaces.ITerminosPresenter;
+import com.example.landmark.recursos.Sesionrecursos;
 
 public class TerminosPresenter implements ITerminosPresenter {
 

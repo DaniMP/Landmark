@@ -1,8 +1,8 @@
-package escenas.boot;
+package com.example.landmark.escenas.boot;
 
-import ayudas.Callback;
-import escenas.boot.interfaces.IBootInteractor;
-import recursos.Sesionrecursos;
+import com.example.landmark.ayudas.Callback;
+import com.example.landmark.escenas.boot.interfaces.IBootInteractor;
+import com.example.landmark.recursos.Sesionrecursos;
 
 public class BootInteractor implements IBootInteractor {
     //Interface IBootInteractor

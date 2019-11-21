@@ -1,4 +1,4 @@
-package escenas.terminos;
+package com.example.landmark.escenas.terminos;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.landmark.R;
 
-import escenas.galeria.GaleriaActivity;
-import escenas.terminos.interfaces.ITerminosActivity;
+import com.example.landmark.escenas.terminos.interfaces.ITerminosActivity;
 
 public class TerminosActivity extends AppCompatActivity implements ITerminosActivity {
 
@@ -54,9 +53,9 @@ public class TerminosActivity extends AppCompatActivity implements ITerminosActi
         TerminosActivity.this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(TerminosActivity.this, GaleriaActivity.class);
-                intent.setAction(Intent.ACTION_VIEW);
-                TerminosActivity.this.startActivity(intent);
+ //               Intent intent = new Intent(TerminosActivity.this, GaleriaActivity.class);
+ //               intent.setAction(Intent.ACTION_VIEW);
+ //               TerminosActivity.this.startActivity(intent);
             }
         });
     }

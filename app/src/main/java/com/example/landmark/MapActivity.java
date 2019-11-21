@@ -52,6 +52,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         // Add a marker in Barcelona and move the camera
 
         LatLng bcn = new LatLng(41.3818, 2.1685);
-        mMap.addMarker(new MarkerOptions().position(bcn).title("prueba").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)))
+        mMap.addMarker(new MarkerOptions().position(bcn).title("prueba").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
     }
 }

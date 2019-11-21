@@ -1,12 +1,12 @@
-package recursos;
+package com.example.landmark.recursos;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.OnSuccessListener;
-import ayudas.Callback;
+import com.example.landmark.ayudas.Callback;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,6 +28,7 @@ public class Sesionrecursos {
 
     public void SignIn(final Callback callback) {
         FirebaseAuth.getInstance().signOut();
+        //FirebaseAuth.getInstance().signInWithEmailAndPassword("email", "password")
         FirebaseAuth.getInstance().signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
