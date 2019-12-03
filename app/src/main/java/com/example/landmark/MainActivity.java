@@ -14,25 +14,30 @@ import android.widget.Toast;
 import com.google.firebase.ml.vision.cloud.FirebaseVisionCloudDetectorOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.example.landmark.BuildConfig;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button, button1;
+    Button buttonSend, buttonFavs, buttonMaps, buttonTrips, buttonGal, buttonCam;
     EditText userInput;
+    private static final String LANDMARK_RECOGNITION = "Landmark Recognition";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = this.findViewById(R.id.send);
+        buttonSend = this.findViewById(R.id.send);
+        buttonFavs = this.findViewById(R.id.fav);
+        buttonMaps = this.findViewById(R.id.maps);
+        buttonTrips = this.findViewById(R.id.viajes);
+        buttonGal = this.findViewById(R.id.gallery);
+        buttonCam = this.findViewById(R.id.foto);
         userInput = (EditText) findViewById(R.id.editText);
 
 
-
-        button1 = this.findViewById(R.id.foto);
-/*
-        button.setOnClickListener(new View.OnClickListener() {        // METODO ONCLICK
+        // Boton SEND
+        buttonSend.setOnClickListener(new View.OnClickListener() {        // METODO ONCLICK
 
             @Override
             public void onClick(View v) {
@@ -48,15 +53,40 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-*/
-            FirebaseVisionCloudDetectorOptions options =
-                    new FirebaseVisionCloudDetectorOptions.Builder()
-                            .setModelType(FirebaseVisionCloudDetectorOptions.LATEST_MODEL)
-                            .setMaxResults(15)
-                            .build();
+
+        // Boton MAPS
 
 
-        button.setOnClickListener(new View.OnClickListener() {        // METODO ONCLICK
+        // Boton VIAJES
+
+
+        // Boton GALERIA
+
+        // OnCick
+        buttonGal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(galleryIntent , 0 );
+            }
+
+            public void buildCloudVisionOptions() {
+                // [START ml_build_cloud_vision_options]
+                FirebaseVisionCloudDetectorOptions options =
+                        new FirebaseVisionCloudDetectorOptions.Builder()
+                                .setModelType(FirebaseVisionCloudDetectorOptions.LATEST_MODEL)
+                                .setMaxResults(15)
+                                .build();
+                // [END ml_build_cloud_vision_options]
+            }
+        });
+
+
+
+        // Boton CAMARA
+
+        // METODO ONCLICK
+        buttonCam.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -64,16 +94,6 @@ public class MainActivity extends AppCompatActivity {
                 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(takePictureIntent, 1);
                 }
-            }
-        });
-
-        Button buttonGal = this.findViewById(R.id.gallery);
-
-        buttonGal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent , 0 );
             }
         });
 
