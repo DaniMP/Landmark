@@ -9,6 +9,7 @@ import com.example.landmark.CameraXActivity;
 import com.example.landmark.R;
 
 import com.example.landmark.escenas.boot.interfaces.IBootActivity;
+import com.example.landmark.escenas.gallery.GalleryActivity;
 import com.example.landmark.escenas.terminos.TerminosActivity;
 import com.example.landmark.recursos.Sesionrecursos;
 
@@ -35,7 +36,7 @@ public class BootActivity extends AppCompatActivity implements IBootActivity {
     //Interface IBootActivity
     @Override
     public void navigateToPublic() {
-        Intent intent = new Intent(BootActivity.this, CameraXActivity.class);
+        Intent intent = new Intent(BootActivity.this, GalleryActivity.class);
         intent.setAction(Intent.ACTION_VIEW);
         BootActivity.this.startActivity(intent);
     }

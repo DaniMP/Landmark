@@ -61,8 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Boton GALERIA
-
-        // OnCick
+            // OnCick
         buttonGal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
