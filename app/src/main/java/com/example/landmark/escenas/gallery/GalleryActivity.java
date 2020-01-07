@@ -30,16 +30,16 @@ public class GalleryActivity extends AppCompatActivity implements IGalleryActivi
         /*Setup events listeners to call onCameraSelected or onGallerySelected*/
 
         //Camera setup listener
-        buttonCam.setOnClickListener(new View.OnClickListener() {
+        buttonCam.setOnClickListener (new View.OnClickListener() {
             @Override
             public void onCameraSelected(View v) {
                 Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(takePictureIntent, 1);
+
                 }
             }
         });
-
 
         //Gallery setup listener
         buttonGal.setOnClickListener(new View.OnClickListener() {
