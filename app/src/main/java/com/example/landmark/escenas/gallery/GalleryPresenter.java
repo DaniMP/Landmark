@@ -59,6 +59,8 @@ public class GalleryPresenter implements IGalleryPresenter {
         GalleryPresenter.this.interactor.tagImageWithFirebase(image, new Callback() {
             @Override
             public void onSuccess(Object responseObject) {
+
+                //do something with the responseObject
                 GalleryPresenter.this.view.showDetail();
             }
 
