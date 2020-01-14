@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -20,10 +21,12 @@ import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.util.ArrayList;
 
-public class GalleryInteractor implements IGalleryInteractor {
+public abstract class GalleryInteractor implements IGalleryInteractor {
     @Override
     public void onCameraSelected(Callback callback) {
+
         /*
          * GET AN IMAGE FROM CAMERA
          * CALL CALLBACK WITH BITMAP
@@ -31,16 +34,32 @@ public class GalleryInteractor implements IGalleryInteractor {
         Bitmap bm = new Bitmap();
         callback.onSuccess(bm);*/
 
+        this.onCameraSelected(new Callback() {
+            @Override
+            public void onSuccess (Object responseObject){
+                //from response object should be a Bitmap
+                Bitmap bm = (Bitmap) responseObject;
+                GalleryInteractor.this.tagImageWithFirebase(bm, callback);
+            }
 
-        Bitmap bm = new Bitmap(GalleryActivity.this.onCameraSelected());//aqui tengo que poner la uri de la imagen que he hecho path anteriormente);
-        callback.onSuccess(bm);
+            @Override
+            public void onError () {
+                Log.d("debug", "error");
+                callback.onError();
+            }
+        });
+    }
+
+
+       /* Bitmap bm = new Bitmap(GalleryActivity.this.onCameraSelected());//aqui tengo que poner la uri de la imagen que he hecho path anteriormente);
+        callback.onSuccess(bm); */
        /* @Override
         public void onSuccess(Object responseObject) {
             //from response object should be a Bitmap
             Bitmap bm = (Bitmap) responseObject;
             GalleryInteractor.this.onCameraSelected(bm);
         }*/
-    }
+
 
     @Override
     public void onGallerySelected(Callback callback) {
@@ -51,12 +70,29 @@ public class GalleryInteractor implements IGalleryInteractor {
         Bitmap bm = new Bitmap();
         callback.onSuccess(bm);*/
 
+
+
+        /*
         Uri selectedImage = data.getData();
         Bitmap = MediaStore.Images.Media.getBitmap(this.onGallerySelected(Callback callback));
         imgPath = getRealPathFromURI(selectedImage);
         destination = new File(imgPath.toString());
-        imageview.setImageBitmap(bitmap);
+        imageview.setImageBitmap(bitmap); */
 
+        this.onGallerySelected(new Callback() {
+            @Override
+            public void onSuccess (Object responseObject){
+                    //from response object should be a Bitmap
+                    Bitmap bm = (Bitmap) responseObject;
+                    GalleryInteractor.this.tagImageWithFirebase(bm, callback);
+                    }
+
+            @Override
+            public void onError () {
+                    Log.d("debug", "error");
+                    callback.onError();
+                    }
+        });
 
 /*
         @Override
@@ -71,8 +107,8 @@ public class GalleryInteractor implements IGalleryInteractor {
         public void onError() {
             GalleryInteractor.this.view.showError("Cannot get image from Gallery");
         }
-
-    } */
+*/
+    }
 
 
     @Override
@@ -89,28 +125,31 @@ public class GalleryInteractor implements IGalleryInteractor {
         mImageLabel.setImageBitmap(imageBitmap);
         encodeBitmapAndSaveToFirebase(imageBitmap); */
 
-
-            // [START image_from_bitmap]
-            FirebaseVisionImage imag = FirebaseVisionImage.fromBitmap(imag);
-            // [END image_from_bitmap]
-
-
-            // Pasa el objeto media.Image y la rotación al firebase
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            private void imageFromMediaImage(Image mediaImage, int rotation) {
-                // [START image_from_media_image]
-                FirebaseVisionImage image = FirebaseVisionImage.fromMediaImage(mediaImage, rotation);
-                //[END image_from_media_image]
+        this.tagImageWithFirebase (new Bitmap, new Callback() {
+            @Override
+            public void onSuccess (Object responseObject){
+                // [START image_from_bitmap]
+                FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(imag);
+                // [END image_from_bitmap]
             }
-
+            @Override
+            public void onError () {
+                Log.d("debug", "error");
+                callback.onError();
+            }
+        });
+      /*
+        private void imageFromBitmap (){
+            // [START image_from_bitmap]
+            FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(imag);
+            // [END image_from_bitmap]
+        }*/
 
         FirebaseDatabase.getInstance();
 
-
-
         LandMarkModel.shared.name = "test";
         callback.onSuccess(LandMarkModel.shared);
-    }
+    };
 /*
     public String getRealPathFromURI(Uri contentUri) {
         String[] proj = {MediaStore.Audio.Media.DATA};
