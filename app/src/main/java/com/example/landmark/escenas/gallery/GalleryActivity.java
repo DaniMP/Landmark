@@ -61,7 +61,28 @@ public class GalleryActivity extends AppCompatActivity implements IGalleryActivi
         });
 
     }
+/*
+* @Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
 
+    if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+        Uri uri = data.getData();
+
+        try {
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+            // Log.d(TAG, String.valueOf(bitmap));
+
+            ImageView imageView = (ImageView) findViewById(R.id.chosenImage);
+            imageView.setImageBitmap(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+*
+* */
     @Override
     public void onCameraSelected() {
         this.presenter.onCameraSelected();
