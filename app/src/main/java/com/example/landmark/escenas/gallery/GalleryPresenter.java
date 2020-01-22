@@ -61,6 +61,7 @@ public class GalleryPresenter implements IGalleryPresenter {
             public void onSuccess(Object responseObject) {
 
                 //do something with the responseObject
+                Bitmap bm = (Bitmap) responseObject;
                 GalleryPresenter.this.view.showDetail();
             }
 
