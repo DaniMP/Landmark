@@ -46,7 +46,7 @@ public class GalleryActivity extends AppCompatActivity implements IGalleryActivi
             @Override
             public void onClick(View v) {
                 Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent , 0 );
+                startActivityForResult(galleryIntent.createChooser(galleryIntent,"Select Picture") , 0 );
             }
 
             public void buildCloudVisionOptions() {

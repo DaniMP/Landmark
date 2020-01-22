@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
 import com.example.landmark.ayudas.Callback;
+import com.example.landmark.escenas.gallery.interfaces.IGalleryActivity;
 import com.example.landmark.escenas.gallery.interfaces.IGalleryInteractor;
 import com.example.landmark.models.LandMarkModel;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -36,6 +37,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GalleryInteractor implements IGalleryInteractor {
+    private IGalleryActivity view;
+    private IGalleryInteractor interactor;
+
     @Override
     public void onCameraSelected(Callback callback) {
 
@@ -46,7 +50,7 @@ public class GalleryInteractor implements IGalleryInteractor {
         Bitmap bm = new Bitmap();
         callback.onSuccess(bm);*/
 
-        this.onCameraSelected(new Callback() {
+        this.interactor.onCameraSelected(new Callback() {
             @Override
             public void onSuccess (Object responseObject){
                 //from response object should be a Bitmap
@@ -89,7 +93,7 @@ public class GalleryInteractor implements IGalleryInteractor {
         destination = new File(imgPath.toString());
         imageview.setImageBitmap(bitmap); */
 
-        onGallerySelected (new Callback() {
+        this.interactor.onGallerySelected (new Callback() {
         @Override
         public void onSuccess (Object responseObject){
             //from response object should be a Bitmap
