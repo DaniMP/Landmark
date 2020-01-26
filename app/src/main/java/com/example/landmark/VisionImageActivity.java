@@ -22,7 +22,7 @@ import java.nio.ByteBuffer;
 import static android.content.ContentValues.TAG;
 import static android.content.Context.CAMERA_SERVICE;
 
-public class VisionImageActivity {
+public class VisionImageHelper {
 
 
     // Objeto Bitmap, Aqui la imagen que se pase no tendrá rotacion requerida.
