@@ -19,21 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
             <activity
-                android:name=".escenas.terminos.TerminosActivity"
-                android:noHistory="true" />
-            <activity android:name=".SecondActivity" />
-            <activity android:name=".CameraXActivity"></activity>
-            <activity
-            android:name=".MainActivity"
+            android:name=".scenes.main.MainActivity"
             android:noHistory="false">
                 <intent-filter>
                     <action android:name="android.intent.action.MAIN" />
                     <category android:name="android.intent.category.LAUNCHER" />
                 </intent-filter>
-            </activity>
-            <activity
-                android:name=".escenas.boot.BootActivity"
-                android:noHistory="true">
             </activity>
     </application>
 
